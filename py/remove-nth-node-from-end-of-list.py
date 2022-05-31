@@ -16,7 +16,7 @@ def array_to_list(a: List[int], i: int = 0):
 
 
 class Solution:
-    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
+    def removeNthFromEnd1(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
         i, l = 0, 1
         node = head
 
@@ -38,6 +38,23 @@ class Solution:
                 prev = node
             node = node.next
             i += 1
+
+        return head
+
+    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
+        prev, node = head, head
+
+        for i in range(n):
+            node = node.next
+
+        if not node:
+            return head.next
+
+        while node.next:
+            prev = prev.next
+            node = node.next
+
+        prev.next = prev.next.next
 
         return head
 
