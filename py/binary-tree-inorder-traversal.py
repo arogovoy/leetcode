@@ -5,6 +5,21 @@ from py.utils import TreeNode, BinaryTree
 
 
 class Solution:
+    # def inorderTraversal2(self, root: Optional[TreeNode]) -> List[int]:
+    #     stack = []
+    #     result = []
+    #     last = root
+    #     while stack or last:
+    #         while last:
+    #             stack.append(last)
+    #             last = last.left
+    #
+    #         last = stack.pop()
+    #         result.append(last.val)
+    #         last = last.right
+    #
+    #     return result
+
     def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
         if not root: return []
         stack = [root]
