@@ -6,12 +6,21 @@ class ListNode:
         self.val = val
         self.next = next
 
+    def __str__(self):
+        return f'{self.val}'
+
+    def print_list(self):
+        arr = [self.val]
+        head = self.next
+        while head:
+            arr.append(head.val)
+            head = head.next
+        return str(arr)
+
+
 def array_to_list(a: List[int], i: int = 0):
     if i >= len(a): return
     return ListNode(a[i], array_to_list(a, i + 1))
-
-
-
 
 
 # Definition for a  binary tree node
